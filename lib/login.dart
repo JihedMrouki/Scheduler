@@ -102,20 +102,20 @@ class _State extends State<Login> {
                                 builder: (context) => Signup()), 
                           );
                         }),
-                        // ElevatedButton(
-                        // //textColor: Colors.blue,
-                        // child: const Text(
-                        //   'Test Button',
-                        //   style: TextStyle(fontSize: 15),
-                        // ),
-                        // onPressed: () {
-                        //   Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         //builder: (context) => MainPage()), // for admin
-                        //          builder: (context) => Emp()), // for professor
-                        //   );
-                        // })
+                        ElevatedButton(
+                        //textColor: Colors.blue,
+                        child: const Text(
+                          'Test Button',
+                          style: TextStyle(fontSize: 15),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                //builder: (context) => MainPage()), // for admin
+                                 builder: (context) => Adminsubmition()), // for professor
+                          );
+                        })
                   ],
                   mainAxisAlignment: MainAxisAlignment.center,
                 )

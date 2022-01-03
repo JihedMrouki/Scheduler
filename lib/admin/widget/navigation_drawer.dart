@@ -1,38 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:iset/admin/admin_submission.dart';
+import 'package:iset/admin/modification.dart';
+import 'package:iset/admin/validation.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
-
   final Padding = EdgeInsets.symmetric(horizontal: 20);
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Material(
-        color: Color.fromRGBO(50, 75, 205, 1),
-        child:ListView(
-          children:<Widget> [
-            const SizedBox(height: 48),
-            buildMenuItem(
-              icon: Icons.add, 
-              text: 'Additions',
-              onClicked: () => selectedItem(context,0),
-            ),
-            // divider beginning 
-            const SizedBox(height: 24,),
-            const Divider(color: Colors.white),
-            const SizedBox(height: 24),
-            // divider ending
-            const SizedBox(height: 16),
-            buildMenuItem(
-              icon: Icons.app_registration_sharp, 
-              text: 'Modifications',
-              onClicked: () => selectedItem(context,1),
-            ),
-
-          ],
-        )
-
-      ) ,
+          color: Color.fromRGBO(50, 75, 205, 1),
+          child: ListView(
+            children: <Widget>[
+              const SizedBox(height: 48),
+              buildMenuItem(
+                icon: Icons.add,
+                text: 'Additions',
+                onClicked: () => selectedItem(context, 0),
+              ),
+              const SizedBox(height: 20),
+              buildMenuItem(
+                icon: Icons.app_registration_sharp,
+                text: 'Additions',
+                onClicked: () => selectedItem(context, 1),
+              ),
+              const SizedBox(height: 20),
+              buildMenuItem(
+                icon: Icons.add,
+                text: 'User Validation',
+                onClicked: () => selectedItem(context, 3),
+              ),
+            ],
+          )),
     );
   }
 
@@ -40,28 +39,33 @@ class NavigationDrawerWidget extends StatelessWidget {
     required String text,
     required IconData icon,
     VoidCallback? onClicked,
-  }){
-    final color = Colors.white;
+  }) {
+    const color = Colors.white;
     return ListTile(
-      leading: Icon(icon, color:color),
-      title: Text(text,style: TextStyle(color:color)),
+      leading: Icon(icon, color: color),
+      title: Text(text, style: TextStyle(color: color)),
       onTap: onClicked,
     );
   }
 }
 
-void selectedItem (BuildContext context, int index){
+void selectedItem(BuildContext context, int index) {
   Navigator.of(context).pop();
-  switch(index){
+  switch (index) {
     case 0:
       Navigator.of(context).push(MaterialPageRoute(
-        builder: (context)=> Adminsubmition(),
+        builder: (context) => const Adminsubmition(),
       ));
       break;
-      // case 1:
-      // Navigator.of(context).push(MaterialPageRoute(
-      //   builder: (context)=> /* page to navigate to */ ,
-      // ));
-      // break;
+    case 1:
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => const Modification(),
+      ));
+      break;
+    case 3:
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => const Validation(),
+      ));
+      break;
   }
 }
